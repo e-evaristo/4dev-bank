@@ -1,0 +1,22 @@
+.operation-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 1em;
+}
+.operation-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cbcbcb;
+    border-radius: 5px;
+    padding: .5em 1em;
+}
+.operation-topbar .operation-title {
+    color: #605f5f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.operation-topbar .operation-title h1 {
+    font-size: 1.5em;
+}
