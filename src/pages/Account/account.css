@@ -132,7 +132,7 @@
     border-radius: 5px;
 }
 
-.account-form button[type="button"] {
+.account-form button.secondary {
     background-color: #333;
 }
 

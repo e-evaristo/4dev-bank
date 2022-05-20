@@ -136,7 +136,7 @@ const AccountForm = () => {
                 </div>
 
                 <div className="account-form-btns">
-                    <button type='button' onClick={() => {navigate('/accounts')}}>
+                    <button type='button' className='secondary' onClick={() => {navigate('/accounts')}}>
                         <span>Voltar</span>
                     </button>
 
