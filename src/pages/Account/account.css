@@ -1,0 +1,153 @@
+
+.account-list-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+.account-list-container .title {
+    color: #605f5f;
+    background-color: #cbcbcb;
+    padding: .5em 1em;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.account-list-container h1 {
+    font-size: 1.5em;
+}
+
+.account-list {
+    margin-top: .8em;
+    box-shadow: 2px 2px 5px 0px #ccc;
+    border-radius: 5px;
+    padding: .2em .5em;
+}
+
+.account-list table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 15px;
+}
+
+.account-list table th {
+    background-color: #2b3348;
+    padding: .5em 1em;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+}
+
+.account-list table td {
+    padding: .8em 1em;
+    text-align: left;
+    font-size: .9em;
+}
+.account-list table td svg {
+    cursor: pointer;
+}
+
+.account-list table td svg[data-icon="edit"] {
+    margin-right: 1em;
+}
+
+.account-list table tr:nth-child(even) {
+    background-color: #e3e3e3;
+}
+
+.account-form {
+    width: 100%;
+    margin: 10px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.account-form form { 
+    border-radius: 5px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 2px 2px 5px 0px #ccc;
+}
+
+.account-form h2 {
+    font-size: 18px;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.account-form .error-message {
+    color: white;
+    background-color: #e74c3c;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.account-input {
+    width: 100%;
+}
+
+.account-input label {
+    font-size: .8em;
+    color: #464545;
+    text-transform: uppercase;
+}
+
+.account-input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1cfcf;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.account-form-btns {
+    display: flex;
+    justify-content:flex-end; 
+    width: 100%;
+    gap: 20px;
+}
+
+.account-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #013786;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.account-form button[type="button"] {
+    background-color: #333;
+}
+
+.account-form button svg {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    animation: loading-spinner 1s linear infinite;
+}
+
+.account-form button:hover:enabled {
+    filter: brightness(2);
+}
+
+.account-form button:disabled {
+    cursor: not-allowed;
+    background-color: #333;
+}

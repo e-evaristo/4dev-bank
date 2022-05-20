@@ -1,0 +1,39 @@
+.actionButton {
+    display: block;
+    padding: 10px 20px;
+    border: none;
+    background-color: #013786;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.actionButton .wait-animation {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    animation: loading-spinner 1s linear infinite;
+}
+
+.actionButton:hover:enabled {
+    filter: brightness(1.5);
+}
+
+.actionButton:disabled {
+    cursor: not-allowed;
+    background-color: #333;
+}
+
+.actionButton .inner {
+    margin-left: 1em;
+}
+
+@keyframes loading-spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

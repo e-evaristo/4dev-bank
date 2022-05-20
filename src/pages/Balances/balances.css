@@ -1,0 +1,58 @@
+.balance-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 1em;
+}
+.balance-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cbcbcb;
+    border-radius: 5px;
+    padding: .5em 1em;
+}
+.balance-topbar .balance-title {
+    color: #605f5f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.balance-topbar .balance-title h1 {
+    font-size: 1.5em;
+}
+
+.balance-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.balance-form .input {
+    padding: 8px;
+    border: 1px solid #d1cfcf;
+    border-radius: 5px;
+    margin-right: 10px; 
+}
+
+.balance-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.balance-info span {
+    font-weight: bold;
+}
+
+.balance-list {
+    margin-top: .8em;
+    box-shadow: 2px 2px 5px 0px #ccc;
+    border-radius: 5px;
+}
+
+.balance-info p {
+    margin-bottom: 1em;
+}

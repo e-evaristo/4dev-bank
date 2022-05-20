@@ -1,0 +1,33 @@
+footer {
+    background: linear-gradient(0deg, #020024 0%, #013786 0%, #034ebe 100%);
+    color: #fff;
+    padding: 1em;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.social-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-list > li {
+    margin: 0 1em;
+}
+
+.social-list li:hover {
+    color: #6aa4fa;
+}
+
+.social-list li svg {
+    font-size: 1.5em;
+    cursor: pointer;
+}

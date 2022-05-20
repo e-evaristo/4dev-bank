@@ -1,0 +1,14 @@
+.nodata-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.nodata-container h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #959595;
+    margin-top: 2em;
+}

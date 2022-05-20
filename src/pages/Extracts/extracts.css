@@ -1,0 +1,100 @@
+.extract-container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 1em;
+}
+.extract-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cbcbcb;
+    border-radius: 5px;
+    padding: .5em 1em;
+}
+.extract-topbar .extract-title {
+    color: #605f5f;
+    display: flex;
+    justify-content: space-between;
+}
+
+.extract-topbar .extract-title h1 {
+    font-size: 1.5em;
+}
+
+.extract-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.extract-form .input {
+    padding: 8px;
+    border: 1px solid #d1cfcf;
+    border-radius: 5px;
+    margin-right: 10px; 
+}
+
+.extract-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.extract-info span {
+    font-weight: bold;
+}
+
+.extract-list {
+    margin-top: .8em;
+    box-shadow: 2px 2px 5px 0px #ccc;
+    border-radius: 5px;
+}
+
+.extract-list table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.extract-list table th {
+    background-color: #2b3348;
+    padding: .5em 1em;
+    text-align: center;
+    color: #fff;
+    font-weight: normal;
+    border: 1px solid #d1cfcf;
+}
+
+.extract-list table td {
+    padding: .8em 1em;
+    text-align: left;
+    font-size: .9em;
+    border: 1px solid #d1cfcf;
+}
+.extract-list table td svg {
+    cursor: pointer;
+}
+
+.extract-list table td svg[data-icon="edit"] {
+    margin-right: 1em;
+}
+
+.extract-list table tr:nth-child(even) {
+    background-color: #e3e3e3;
+}
+
+.extract-list .td-extract-value {
+    text-align: right;
+}
+
+.extract-list .td-extract-date {
+    text-align: right;
+}
+
+.extract-list .td-extract-total {
+    text-align: right;
+    font-weight: bold;
+}
