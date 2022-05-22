@@ -10,6 +10,7 @@
     background-color: #cbcbcb;
     border-radius: 5px;
     padding: .5em 1em;
+    margin-bottom: 15px;
 }
 .extract-topbar .extract-title {
     color: #605f5f;
@@ -48,9 +49,10 @@
 }
 
 .extract-list {
-    margin-top: .8em;
+    margin-bottom: 3em;
     box-shadow: 2px 2px 5px 0px #ccc;
     border-radius: 5px;
+    background-color: #fff;
 }
 
 .extract-list table {
@@ -69,13 +71,27 @@
 }
 
 .extract-list table td {
-    padding: .8em 1em;
+    padding: 1em 1em;
     text-align: left;
     font-size: .9em;
     border: 1px solid #d1cfcf;
 }
+.extract-list table td .operation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.extract-list table td .income {
+    color: forestgreen;
+    font-weight: bold;
+}
+.extract-list table td .outcome {
+    color: maroon;
+    font-weight: bold;
+}
 .extract-list table td svg {
-    cursor: pointer;
+    width: 18px;
+    height: 18px;
 }
 
 .extract-list table td svg[data-icon="edit"] {
@@ -83,7 +99,7 @@
 }
 
 .extract-list table tr:nth-child(even) {
-    background-color: #e3e3e3;
+    background-color: #f6f6f6;
 }
 
 .extract-list .td-extract-value {

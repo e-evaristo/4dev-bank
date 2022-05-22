@@ -20,6 +20,10 @@
     animation: loading-spinner 1s linear infinite;
 }
 
+.actionButton .inner > svg {
+    color: #fff;
+}
+
 .actionButton:hover:enabled {
     filter: brightness(1.5);
 }

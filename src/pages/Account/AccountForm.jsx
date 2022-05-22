@@ -5,6 +5,7 @@ import { CgSpinner } from 'react-icons/cg';
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from 'react-toastify';
+import addImg from '../../img/add.png';
 
 import './account.css';
 import { formatStringDate } from '../../helpers/dateFilter';
@@ -100,52 +101,64 @@ const AccountForm = () => {
     }
 
     return (
-        
-        <div className="account-form">
-            <h1>Cadastrar Conta</h1>
-            <form>
-                <div className="account-input">
-                    <label htmlFor="name">Nome</label>
-                    <input type="hidden" id="id" value={id} onChange={(e) => setId(e.target.value)} />
-                    <input type="text" id="name" placeholder='Nome Completo *' value={name} onChange={(e) => setName(e.target.value)} />
+        <div className="account-form-container">
+            <div className="topbar">
+                <div className="title">
+                    <h1>Cadastro de Nova Conta</h1>
+                </div>
+            </div>
+            <div className="account-form-inner">
+                
+                <div className="account-form-left">
+                    <img src={addImg} alt="new account" />
                 </div>
 
-                <div className="account-input">
-                    <label htmlFor="email">E-mail</label>
-                    <input type="email" id="email" placeholder='E-mail *' value={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
+                <div className="account-form">
+                    <div className='form'>
+                        <div className="account-input">
+                            <label htmlFor="name">Nome *</label>
+                            <input type="hidden" id="id" value={id} onChange={(e) => setId(e.target.value)} />
+                            <input type="text" id="name" placeholder='Nome Completo' value={name} onChange={(e) => setName(e.target.value)} />
+                        </div>
 
-                <div className="account-input">
-                    <label htmlFor="phone">Telefone</label>
-                    <InputMask id="phone" mask="(99)99999-9999" placeholder='Telefone *' value={phone} onChange={(e) => setPhone(e.target.value)} />
-                </div>
+                        <div className="account-input">
+                            <label htmlFor="email">E-mail *</label>
+                            <input type="email" id="email" placeholder='E-mail' value={email} onChange={(e) => setEmail(e.target.value)} />
+                        </div>
 
-                <div className="account-input">
-                    <label htmlFor="phone">Data de Nascimento</label>
-                    <InputMask id="dob" mask="99/99/9999" placeholder='Data de Nascimento *' value={dob} onChange={(e) => setDob(e.target.value)} />
-                </div>
+                        <div className="account-input">
+                            <label htmlFor="phone">Telefone *</label>
+                            <InputMask id="phone" mask="(99)99999-9999" placeholder='Telefone' value={phone} onChange={(e) => setPhone(e.target.value)} />
+                        </div>
 
-                <div className="account-input">
-                    <label htmlFor="cpf">CPF</label>
-                    <InputMask id="cpf" mask="999.999.999-99" placeholder='CPF *' value={cpf} onChange={(e) => setCpf(e.target.value)} />
-                </div>
+                        <div className="account-input">
+                            <label htmlFor="phone">Data de Nascimento *</label>
+                            <InputMask id="dob" mask="99/99/9999" placeholder='Data de Nascimento' value={dob} onChange={(e) => setDob(e.target.value)} />
+                        </div>
 
-                <div className="account-input">
-                    <label htmlFor="password">Senha</label>
-                    <input type="password" id="password" placeholder='Senha *' value={password} onChange={(e) => setPassword(e.target.value)} />
-                </div>
+                        <div className="account-input">
+                            <label htmlFor="cpf">CPF *</label>
+                            <InputMask id="cpf" mask="999.999.999-99" placeholder='CPF' value={cpf} onChange={(e) => setCpf(e.target.value)} />
+                        </div>
 
-                <div className="account-form-btns">
-                    <button type='button' className='secondary' onClick={() => {navigate('/accounts')}}>
-                        <span>Voltar</span>
-                    </button>
+                        <div className="account-input">
+                            <label htmlFor="password">Senha *</label>
+                            <input type="password" id="password" placeholder='Senha' value={password} onChange={(e) => setPassword(e.target.value)} />
+                        </div>
 
-                    <button type='button' onClick={handleSubmit} disabled={wait}>
-                        {wait && <CgSpinner />}
-                        <span>Salvar</span>
-                    </button>
+                        <div className="account-form-btns">
+                            <button type='button' className='secondary' onClick={() => {navigate('/accounts')}}>
+                                <span>Voltar</span>
+                            </button>
+
+                            <button type='button' onClick={handleSubmit} disabled={wait}>
+                                {wait && <CgSpinner />}
+                                <span>Salvar</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </div>
         </div>
     );
 }

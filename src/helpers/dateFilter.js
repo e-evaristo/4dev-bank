@@ -6,6 +6,16 @@ export const getLocaleDateBR = (date) => {
     })
 }
 
+export const getLocaleDateTimeBR = (date) => {
+    return new Date(date).toLocaleString("pt-BR", {
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+    })
+}
+
 export const formatStringDate = (date) => {
     var day  = date.split("/")[0];
     var month  = date.split("/")[1];

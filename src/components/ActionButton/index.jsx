@@ -15,11 +15,9 @@ const ActionButton = (props) => {
             onClick={props.action ?? handleClick}
             disabled={props.wait}>
 
-                {props.wait && <div className="wait-animation"><CgSpinner /></div>   }
+                { props.wait && <div className="wait-animation"><CgSpinner /></div>  }
                 <span>{props.text ?? 'Salvar'}</span>
-                <div className="inner">
-                    { props.children }
-                </div>
+                { props.children && <div className="inner">{ props.children }</div> }
 
         </button>
      );

@@ -3,7 +3,7 @@ import InputMask from 'react-input-mask/lib/react-input-mask.development';
 import ActionButton from '../../components/ActionButton';
 import { FaSearch } from 'react-icons/fa';
 import './balances.css';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import NoData from '../../components/NoData';
 import { toast } from 'react-toastify';
 import { validarCPF } from '../../helpers/cpfFilter';
@@ -15,30 +15,41 @@ const Balances = () => {
     const [nome, setNome] = useState('');
     const [cpf, setCpf] = useState('');
     const [saldo, setSaldo] = useState(-1);
+    const [message, setMessage] = useState('');
+    const [finished, setFinished] = useState(false);
+    const inputCpf = useRef(null);
 
-    const loadSaldo = async () => {
+    const loadSaldo = async (cpf) => {
         setWait(true);
         await axios.get(`https://api-contas-trade4devs.herokuapp.com/conta/saldo/${cpf}`)
             .then(response => {
+                const data = response.data;
                 toast.info(`Pesquisa finalizada`, {autoClose:1000});
-                setSaldo(response.data.saldo);
-                setNome(response.data.nome);
-                setCpf(response.data.cpf);
-                setWait(false);
+                setSaldo(data.saldo);
+                setNome(data.nome);
+                setCpf(data.cpf);
+                setFinished(true);
             }).catch(error => {
                 toast.info(`${error.response.status} - Verifique os dados informados`);
+                setFinished(false);
+            }).finally(() => {
                 setWait(false);
             });
         }
 
     const handleSearch = () => {
+        let cpf = inputCpf.current.value;
         if (!cpf || !validarCPF(cpf)) {
             toast.error('O CPF informado não é válido');
             setWait(false);
             return;
         }
-        loadSaldo();
+        loadSaldo(cpf);
     }
+
+    useEffect(() => {
+        setMessage('Informe o CPF do cliente');
+    }, []);
 
     return (
         <div className="balance-container">
@@ -48,7 +59,7 @@ const Balances = () => {
                 </div>
                 <div className="balance-form">
                     <div>
-                        <InputMask className='input' id="cpf" mask="999.999.999-99" placeholder='CPF *' value={cpf} onChange={ (e) => setCpf(e.target.value) } />
+                        <InputMask className='input' id="cpf" mask="999.999.999-99" placeholder='CPF *' ref={inputCpf} />
                     </div>
                     <div>
                         <ActionButton text="Pesquisar" action={() => handleSearch()} wait={wait}>
@@ -59,17 +70,17 @@ const Balances = () => {
             </div>
 
             <div className="balance-list">
-                {saldo >= 0 ? 
+                {finished ? 
                     (
                         <>
                             <div className="balance-info">
                                 <p>Nome: <span>{nome}</span></p>
                                 <p>CPF: <span>{cpf}</span></p>
-                                <p>SALDO EM CONTA: <span>{ getLocaleNumber(saldo)}</span></p>
+                                <p>SALDO EM CONTA: <span className={saldo < 0 ? 'negative':'positive'}>{ getLocaleNumber(saldo)}</span></p>
                             </div>
                         </>
                     ) : (
-                        <NoData message="Informe o CPF do cliente" />
+                        <NoData message={message} />
                     )
                 }
 

@@ -9,3 +9,22 @@ html, body, #root {
   background-color: #efefef;
   height: 100%;
 }
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #cbcbcb;
+  border-radius: 5px;
+  padding: .5em 1em;
+  margin-bottom: 15px;
+}
+.topbar .title {
+  color: #605f5f;
+  display: flex;
+  justify-content: space-between;
+}
+
+.topbar .title h1 {
+  font-size: 1.5em;
+}

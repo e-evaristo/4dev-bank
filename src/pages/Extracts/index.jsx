@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import InputMask from 'react-input-mask/lib/react-input-mask.development';
 import { toast } from 'react-toastify';
@@ -18,14 +18,16 @@ const Extracts = () => {
     const [extract, setExtract] = useState([]);
     const [wait, setWait] = useState(false);
     const [message, setMessage] = useState('Informe o CPF do cliente para pesquisar o extrado');
+    const inputCpf = useRef(null);
 
-    const loadExtracts = async () => {
+    const loadExtracts = async (cpf, month = '') => {
         setWait(true);
         await axios.get(`https://api-contas-trade4devs.herokuapp.com/conta/extrato/${cpf}/${month}`)
             .then(response => {
                 toast.info(`Pesquisa finalizada`, {autoClose:1000});
                 setExtract(response.data.operacoes);
                 setNome(response.data.nome);
+                setCpf(response.data.cpf);
                 if (response.data.operacoes.length === 0) {
                     setMessage('Não há registros para o CPF informado');
                 }
@@ -37,12 +39,13 @@ const Extracts = () => {
         }
 
     const handleSearch = () => {
+        let cpf = inputCpf.current.value;
         if (!cpf || !validarCPF(cpf)) {
             toast.error('O CPF informado não é válido');
             setWait(false);
             return;
         }
-        loadExtracts();
+        loadExtracts(cpf, month);
     }
 
     return (
@@ -53,7 +56,7 @@ const Extracts = () => {
                 </div>
                 <div className="extract-form">
                     <div>
-                        <InputMask className='input' id="cpf" mask="999.999.999-99" placeholder='CPF *' value={cpf} onChange={ (e) => setCpf(e.target.value) } />
+                        <InputMask className='input' id="cpf" mask="999.999.999-99" placeholder='CPF *' ref={inputCpf} />
                     </div>
                     <div>
                         <select name="" className='input' defaultValue={''} onChange={ (e) => setMonth(e.target.value) }>

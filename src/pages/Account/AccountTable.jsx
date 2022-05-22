@@ -34,6 +34,8 @@ const AccountTable = ({items}) => {
                     </thead>
                     <tbody>
                         {
+                            items.length > 0 ?
+                            
                             items.map(item => (
                                 <tr key={item._id}>
                                     <td>{item.nome}</td>
@@ -48,7 +50,10 @@ const AccountTable = ({items}) => {
                                         <FaRegTrashAlt size={16} color="#DE3B3B" onClick={() => handleDelete(item)} />
                                     </td>
                                 </tr>
-                            ))
+                            )) :
+                            <tr>
+                                <td colSpan={6}>Nenhum registro encontrado</td>
+                            </tr>
                         }
                     </tbody>
                 </table>
