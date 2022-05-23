@@ -27,7 +27,7 @@ const ExtractTable = ({extract}) => {
                                 
                                 return (
                                     <tr key={item._id}>
-                                        <td>
+                                        <td data-label="Tipo: ">
                                             {
                                                 item.tipo === 'ENTRADA' ?
                                                     <span className="operation income">ENTRADA <FaCaretSquareUp /></span>
@@ -35,8 +35,8 @@ const ExtractTable = ({extract}) => {
                                                     <span className="operation outcome">SAÍDA <FaCaretSquareDown /></span>
                                             }
                                         </td>
-                                        <td className="td-extract-date">{ getLocaleDateTimeBR(item.data) }</td>
-                                        <td className="td-extract-value">{ getLocaleNumber(item.valor) }</td>
+                                        <td data-label="Data: " className="td-extract-date">{ getLocaleDateTimeBR(item.data) }</td>
+                                        <td data-label="Valor: " className="td-extract-value">{ getLocaleNumber(item.valor) }</td>
                                     </tr>
                                 );
                             })

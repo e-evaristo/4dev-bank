@@ -18,14 +18,12 @@ const AccountTable = ({items}) => {
     }
 
     return ( 
-        <div>
-            
+        <>
             <div className="account-list">
                 <table>
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>E-mail</th>
+                            <th>Nome / Email</th>
                             <th>Telefone</th>
                             <th>Data Nasc.</th>
                             <th>CPF</th>
@@ -38,12 +36,14 @@ const AccountTable = ({items}) => {
                             
                             items.map(item => (
                                 <tr key={item._id}>
-                                    <td>{item.nome}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.telefone}</td>
-                                    <td>{ getLocaleDateBR(item.dataNascimento) }</td>
-                                    <td>{item.cpf}</td>
-                                    <td>
+                                    <td data-label="Nome:  ">
+                                        {item.nome} <br />
+                                        <span className='email'>{item.email}</span>
+                                    </td>
+                                    <td data-label="Telefone: ">{item.telefone}</td>
+                                    <td data-label="Data Nasc.: ">{ getLocaleDateBR(item.dataNascimento) }</td>
+                                    <td data-label="CPF: ">{item.cpf}</td>
+                                    <td data-label="">
                                         <Link to={`/account/${item._id}`}>
                                             <FaRegEdit size={16} color="#4D85EE" data-icon="edit" />
                                         </Link>
@@ -52,13 +52,13 @@ const AccountTable = ({items}) => {
                                 </tr>
                             )) :
                             <tr>
-                                <td colSpan={6}>Nenhum registro encontrado</td>
+                                <td colSpan={5}>Nenhum registro encontrado</td>
                             </tr>
                         }
                     </tbody>
                 </table>
             </div>
-        </div>
+        </>
      );
 }
  
