@@ -55,31 +55,25 @@ const Extracts = () => {
                     <h1>Extrato da Conta</h1>
                 </div>
                 <div className="extract-form">
-                    <div>
-                        <InputMask className='input' id="cpf" mask="999.999.999-99" placeholder='CPF *' ref={inputCpf} />
-                    </div>
-                    <div>
-                        <select name="" className='input' defaultValue={''} onChange={ (e) => setMonth(e.target.value) }>
-                            <option value="">Selecione o Mês</option>
-                            <option value="1">Janeiro</option>
-                            <option value="2">Fevereiro</option>
-                            <option value="3">Março</option>
-                            <option value="4">Abril</option>
-                            <option value="5">Maio</option>
-                            <option value="6">Junho</option>
-                            <option value="7">Julho</option>
-                            <option value="8">Agosto</option>
-                            <option value="9">Setembro</option>
-                            <option value="10">Outubro</option>
-                            <option value="11">Novembro</option>
-                            <option value="12">Dezembro</option>
-                        </select>
-                    </div>
-                    <div>
-                        <ActionButton text="Pesquisar" action={() => handleSearch()} wait={wait}>
-                            <FaSearch />
-                        </ActionButton>
-                    </div>
+                    <InputMask className='input' id="cpf" mask="999.999.999-99" placeholder='CPF *' ref={inputCpf} />
+                    <select name="" className='input' defaultValue={''} onChange={ (e) => setMonth(e.target.value) }>
+                        <option value="">Selecione o Mês</option>
+                        <option value="1">Janeiro</option>
+                        <option value="2">Fevereiro</option>
+                        <option value="3">Março</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Maio</option>
+                        <option value="6">Junho</option>
+                        <option value="7">Julho</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Setembro</option>
+                        <option value="10">Outubro</option>
+                        <option value="11">Novembro</option>
+                        <option value="12">Dezembro</option>
+                    </select>
+                    <ActionButton text="Pesquisar" action={() => handleSearch()} wait={wait}>
+                        <FaSearch />
+                    </ActionButton>
                 </div>
             </div>
 
