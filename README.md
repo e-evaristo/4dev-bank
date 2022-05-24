@@ -22,7 +22,7 @@ Desafio: __Criar um portal web para contas digitais, com:__
 ### Instalação:
 
 01. `git clone https://github.com/e-evaristo/4dev-bank.git`
-02. `cd 4dev-bak`
+02. `cd 4dev-bank`
 03. `yarn` ou `npm install`
 04. `yarn start` ou `npm start`
 
