@@ -1,5 +1,3 @@
-import { ToastContainer } from 'react-toastify';
-
 import zzz from '../../img/zzz.gif';
 
 import './container.css';
@@ -10,7 +8,6 @@ const Container = (props) => {
         :
         <div className={`${'container'} ${props.customClass}`}>
             { props.children }
-            <ToastContainer />
         </div>
     );
 }

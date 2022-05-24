@@ -20,7 +20,7 @@
     align-items: center;
 }
 
-.item {
+.item, .logout-btn {
     display: flex;
     align-items: center;
     margin-left: 2em;
@@ -36,6 +36,22 @@
 }
 
 .item a:hover, .item a:active {
+    background-color: #217ef0;
+}
+
+.logout-btn {
+    color: #fff;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+    margin-left: 0;
+    font-size: 1em;
+}
+
+.logout-btn:hover {
     background-color: #217ef0;
 }
 

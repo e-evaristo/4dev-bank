@@ -111,6 +111,8 @@
     .nodata-container {
         height: auto;
         padding: 1em;
+        justify-content: flex-start;
+        min-height: auto;
     }
 
     .nodata-container h1 {
