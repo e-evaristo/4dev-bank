@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import NoData from "../components/NoData";
 import Login from "../pages/Login";
 import PrivateOutlet from "./PrivateOutlet";
 
@@ -9,6 +8,7 @@ import AccountForm from "../pages/Account/AccountForm";
 import Balances from "../pages/Balances";
 import Extracts from "../pages/Extracts";
 import Operations from "../pages/Operations";
+import zzz from '../img/zzz.gif';
 
 const Account = React.lazy(() => import("../pages/Account"));
 
@@ -24,7 +24,7 @@ const Rotas = () => {
 
             <Route path="/accounts" element={<PrivateOutlet />}>
                 <Route path="/accounts" element={
-                    <Suspense fallback={<NoData message="Carregando..." wait={true} />}>
+                    <Suspense fallback={<div className='waitBox'><span><img src={zzz} alt="..." /> Aguarde... Carregando...</span></div>}>
                         <Account />
                     </Suspense>
                 } />

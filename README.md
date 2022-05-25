@@ -1,4 +1,4 @@
-<p align="center"><img src="./src/img/logo-wide.png"></p>
+<p align="center"><img src="./src/img/logo-wide.png" style="filter: invert(50%) sepia(100%) hue-rotate(-180deg) saturate(5);"></p>
 
 
 Projeto final de curso da **Trade4Devs**
