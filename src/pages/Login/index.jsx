@@ -62,15 +62,18 @@ const Login = () => {
                 <input type="password"
                     className="form-control"
                     id="inputPassword"
-                    placeholder="******"
+                    placeholder="Senha"
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
                 <button type="submit" disabled={wait}>
                     { wait ?  <span className="state">ENTRANDO...</span> : <span className="state">ENTRAR</span>  }
                 </button>
-
             </form>
+
+            <p onClick={() => navigate('/new-account')} className="create-new-account">Ainda não tem conta? <br />
+                <span>Cadastre sua conta gratuitamente</span>
+            </p>
         </div>
     );
 }

@@ -1,15 +1,12 @@
 import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
 import { getLocaleDateBR } from "../../helpers/dateFilter";
 import { toast } from 'react-toastify';
 
 const AccountTable = ({items}) => {
 
-    /* const [editItem, setEditItem] = useState(null);
-
     const handleEdit = (item) => {
-        console.log(item);
-    } */
+        toast(`Editar Conta de ${item.nome} `);
+    } 
 
     const handleDelete = (item) => {
         if (window.confirm('Deseja realmente excluir este registro?')) {
@@ -44,9 +41,7 @@ const AccountTable = ({items}) => {
                                     <td data-label="Data Nasc.: ">{ getLocaleDateBR(item.dataNascimento) }</td>
                                     <td data-label="CPF: ">{item.cpf}</td>
                                     <td data-label="">
-                                        <Link to={`/account/${item._id}`}>
-                                            <FaRegEdit size={16} color="#4D85EE" data-icon="edit" />
-                                        </Link>
+                                        <FaRegEdit size={16} color="#4D85EE" data-icon="edit" onClick={() => handleEdit(item)} />
                                         <FaRegTrashAlt size={16} color="#DE3B3B" onClick={() => handleDelete(item)} />
                                     </td>
                                 </tr>

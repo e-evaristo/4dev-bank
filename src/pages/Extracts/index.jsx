@@ -22,14 +22,14 @@ const Extracts = () => {
 
     const loadExtracts = async (cpf, month = '') => {
         setWait(true);
-        await axios.get(`https://api-contas-trade4devs.herokuapp.com/conta/extrato/${cpf}/${month}`)
+        await axios.get(`https://api-contas-trade4devs.herokuapp.com/conta/extrato/${cpf}?mes=${month}`)
             .then(response => {
                 toast.info(`Pesquisa finalizada`, {autoClose:1000});
                 setExtract(response.data.operacoes);
                 setNome(response.data.nome);
                 setCpf(response.data.cpf);
                 if (response.data.operacoes.length === 0) {
-                    setMessage('Não há registros para o CPF informado');
+                    setMessage('Não há registros para o CPF no mês informado');
                 }
                 setWait(false);
             }).catch(error => {

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import InputMask from 'react-input-mask/lib/react-input-mask.development';
-import { validarCPF } from '../../helpers/cpfFilter';
 import { CgSpinner } from 'react-icons/cg';
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
@@ -9,6 +8,7 @@ import addImg from '../../img/add.png';
 
 import './account.css';
 import { formatStringDate } from '../../helpers/dateFilter';
+import validateAccountFields from '../../helpers/newAccountsValidation';
 
 const AccountForm = () => {
 
@@ -54,49 +54,30 @@ const AccountForm = () => {
 
     const handleSubmit = () => {
 
-        setWait(true);
+        try {
+            setWait(true);
 
-        if (name.length < 3) {
-            handlerError('Preecha o campo Nome.');
-            return;
-        }
-        const regexEmail = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-        if (!email || regexEmail.test(email) === false) {
-            handlerError('O e-mail informado não é válido');
-            return;
-        }
-        const regexPhone = /^\([1-9]{2}\)[1-9]{0,1}[1-9]{1}[0-9]{3}-[0-9]{4}$/;
-        if (!phone || regexPhone.test(phone) === false) {
-            handlerError('Informe o telefone com DDD');
-            return;
-        }
-        const regexDob = /^(?:0[1-9]|[12]\d|3[01])([/.-])(?:0[1-9]|1[0-2])\1(?:19|20)\d\d$/;
-        if (!dob || regexDob.test(dob) === false) {
-            handlerError('Data de nascimento inválida');
-            return;
-        }
-        if (!cpf || !validarCPF(cpf)) {
-            handlerError('O CPF informado não é válido');
-            return;
-        }
-        if (password.length < 6) {
-            handlerError('A senha deve conter no mínimo 6 caracteres');
-            return;
-        }
+            validateAccountFields(name, email, phone, dob, cpf, password);
 
-        axios.post('https://api-contas-trade4devs.herokuapp.com/conta', {
-            nome: name,
-            email,
-            senha: password,
-            telefone: phone,
-            dataNascimento: formatStringDate(dob),
-            cpf,
-        }).then(response => {
-            toast.success('Conta criada com sucesso!');
-            navigate('/accounts');
-        }).catch(error => {
-            handlerError(`Ocorreu um erro ao tentar cadastrar o usuário: ${error.response.data.message}`);
-        });
+            axios.post('https://api-contas-trade4devs.herokuapp.com/conta', {
+                nome: name,
+                email,
+                senha: password,
+                telefone: phone,
+                dataNascimento: formatStringDate(dob),
+                cpf,
+            }).then(response => {
+                toast.success('Conta criada com sucesso!');
+                navigate('/accounts');
+            }).catch(error => {
+                handlerError(`Ocorreu um erro ao tentar cadastrar o usuário: ${error.response.data.message}`);
+            });
+            
+        } catch (error) {
+            handlerError(error.message);
+        } finally {
+            setWait(false);
+        }
         
     }
 

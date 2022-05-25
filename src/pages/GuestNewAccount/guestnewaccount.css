@@ -1,4 +1,4 @@
-.login-wrapper {
+.guest-wrapper {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -11,86 +11,100 @@
     background-size: cover;
 }
 
-.login-form {
+.guest-form {
     border-radius: 10px;
     padding: 10px 20px 20px 20px;
-    width: 90%;
-    max-width: 320px;
+    width: 600px;
     background: #ffffff;
     position: relative;
     padding-bottom: 80px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-.login-form input {
+.guest-form-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-form input {
     display: block;
     padding: 15px 10px;
-    margin-bottom: 10px;
+    margin: 10px;
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 2px;
-    color: #555;
+    color: #555555;
 }
 
-.login-form .title {
+.guest-form .title {
     filter: brightness(.4);
-    margin: 10px 0 30px 0;
-    padding-bottom: 20px;
+    margin: 10px 0 10px 0;
     text-align: center;
 }
 
-.login-form .title:hover {
+.guest-form .subtitle {
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: .8em;
+    color: #8d8d8d;
+}
+
+.guest-form .title:hover {
     filter: brightness(0);
 }
 
-.login-form button {
+.guest-form-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.guest-form button {
     width: 100%;
     height: 100%;
     padding: 10px 10px;
     background: #2196F3;
     color: #fff;
-    display: block;
     border: none;
-    margin-top: 20px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    max-height: 60px;
+    height: 60px;
     border: 0px solid rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 10px 10px;
     transition: all 0.3s ease-out;
     border-bottom-width: 8px;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
 }
 
-.login-form button:hover {
+.guest-form button[type="submit"] {
+    border-radius: 0 0 10px 0;
+}
+
+.guest-form button[type="button"] {
+    background: #5f5f5f;
+    border-radius: 0 0 0 10px;
+}
+
+.guest-form button:hover {
     background: #0b7dda;
 }
 
-.login-form button:disabled {
+.guest-form button:disabled {
     cursor: not-allowed;
     background-color: #333;
 }
 
-.create-new-account {
-    color: #fff;
-    cursor: pointer;
-    font-size: 0.8em;
-    margin-top: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-    text-align: center;
-}
+@media screen and (max-width: 830px) {
+    .guest-form {
+        width: 100%;
+    }
 
-.create-new-account:hover {
-    text-decoration: underline;
-}
-
-.create-new-account span {
-    font-weight: normal;
+    .guest-form-inputs {
+        flex-direction: column;
+    }
 }

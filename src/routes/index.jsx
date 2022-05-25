@@ -8,6 +8,7 @@ import AccountForm from "../pages/Account/AccountForm";
 import Balances from "../pages/Balances";
 import Extracts from "../pages/Extracts";
 import Operations from "../pages/Operations";
+import GuesNewAccount from "../pages/GuestNewAccount";
 import zzz from '../img/zzz.gif';
 
 const Account = React.lazy(() => import("../pages/Account"));
@@ -17,6 +18,7 @@ const Rotas = () => {
     return ( 
         <Routes>
             <Route path="/" element={<Login />} />
+            <Route path="/new-account" element={<GuesNewAccount />} />
             
             <Route path="/home" element={<PrivateOutlet />}>
                 <Route path="/home" element={<Home />} />
@@ -32,6 +34,10 @@ const Rotas = () => {
 
             <Route path="/account" element={<PrivateOutlet />}>
                 <Route path="/account" element={<AccountForm />} />
+            </Route>
+
+            <Route path="/account/:_id" element={<PrivateOutlet />}>
+                <Route path="/account/:_id" element={<AccountForm />} />
             </Route>
 
             <Route path="/balances" element={<PrivateOutlet />}>
