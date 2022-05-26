@@ -27,7 +27,7 @@
     margin: 2em 0;
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (max-width: 858px) {
 
     .home-container h1 {
         font-size: 7vw;
@@ -48,12 +48,21 @@
     }
 
     .navbar-container .list {
+        display: none;
+    }
+
+    .navbar-container.list-open {
         display: flex;
         flex-direction: column;
+        height: 100%;
     }
 
     .navbar-container .list .item {
         margin: 0 auto;
+    }
+
+    .logo-top-bar svg {
+        display: block;
     }
 
     .home-container img {

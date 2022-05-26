@@ -14,8 +14,20 @@
     margin: 0 auto;
 }
 
-.list {
+.logo-top-bar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-top-bar svg {
+    display: none;
+    cursor: pointer;
+}
+
+.navbar-container .list {
+    display: flex;
+    flex-direction: row;
     list-style: none;
     align-items: center;
 }
