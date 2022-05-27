@@ -10,7 +10,7 @@ import './navbar.css';
 const Navbar = () => {
     const { logout } = useContext(AuthContext);
 
-    const [menuOpen, setMenuOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(true);
 
     return (
         <nav className="navbar">
