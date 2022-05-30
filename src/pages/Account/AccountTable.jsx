@@ -1,8 +1,11 @@
 import { FaRegEdit, FaRegTrashAlt } from 'react-icons/fa';
 import { getLocaleDateBR } from "../../helpers/dateFilter";
 import { toast } from 'react-toastify';
+import { useState } from 'react';
 
 const AccountTable = ({items}) => {
+
+    const [searchText, setSearchText] = useState('');
 
     const handleEdit = (item) => {
         toast(`Editar Conta de ${item.nome} `);
@@ -16,6 +19,9 @@ const AccountTable = ({items}) => {
 
     return ( 
         <>
+            <div className="account-search-form">
+                <input type="text" placeholder='Pesquisar por nome' onChange={(e) => setSearchText(e.target.value)} />
+            </div>
             <div className="account-list">
                 <table>
                     <thead>
@@ -31,7 +37,8 @@ const AccountTable = ({items}) => {
                         {
                             items.length > 0 ?
                             
-                            items.map(item => (
+                            items.filter(item => item.nome.toLowerCase().includes(searchText.toLowerCase()))
+                            .map(item => (
                                 <tr key={item._id}>
                                     <td data-label="Nome:  ">
                                         {item.nome} <br />

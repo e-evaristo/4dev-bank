@@ -30,6 +30,20 @@
     width: auto;
 }
 
+.account-search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.account-search-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d1cfcf;
+    border-radius: 5px;
+}
+
 .account-list table {    
     border-collapse: collapse;
     border-spacing: 0;
