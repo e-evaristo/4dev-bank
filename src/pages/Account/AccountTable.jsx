@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { FaRegEdit, FaRegTrashAlt, FaMoneyCheckAlt, FaSpinner, FaExclamationCircle } from 'react-icons/fa';
+import { FaRegEdit, FaRegTrashAlt, FaMoneyCheckAlt, FaSpinner } from 'react-icons/fa';
 import { getLocaleDateBR } from "../../helpers/dateFilter";
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import Popup from '../../components/Popup';
 import { getLocaleNumber } from '../../helpers/numberFilter';
-import { validarCPF } from '../../helpers/cpfFilter';
 
 const AccountTable = ({items}) => {
 
@@ -98,7 +97,6 @@ const AccountTable = ({items}) => {
                             <td>CPF:</td>
                             <td>
                                 { balanceData.cpf }
-                                { !validarCPF(balanceData.cpf) && <FaExclamationCircle className='cpf-error' title='CPF inválido' /> }
                             </td>
                         </tr>
                         <tr>
