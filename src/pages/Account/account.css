@@ -77,8 +77,12 @@
     cursor: pointer;
 }
 
-.account-list table td svg[data-icon="edit"] {
-    margin-right: 1em;
+.account-list table td svg[data-icon="delete"] {
+    margin: 0 1em;
+}
+
+.account-list table td svg[data-icon="wait"] {
+    animation: loading-spinner 1s linear infinite;
 }
 
 .account-list table tr:nth-child(even) {
@@ -193,4 +197,25 @@
 .account-form button:disabled {
     cursor: not-allowed;
     background-color: #333;
+}
+.popup-container table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.popup-container table tr {
+    border-bottom: 1px solid #ccc;
+}
+
+.popup-container table td {
+    padding: 10px 0;
+    text-align: left;
+    font-size: .9em;
+}
+
+.popup-container .cpf-error {
+    color: #B30000;
+    margin-left: 15px;
 }
